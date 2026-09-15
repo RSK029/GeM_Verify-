@@ -1,0 +1,37 @@
+.upload-progress { padding: var(--s3) var(--s4); margin-bottom: var(--s4); }
+.upload-bar { display: block; height: 6px; border-radius: 3px; background: #eceff3; margin-top: var(--s2); overflow: hidden; }
+.upload-bar > span { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width var(--transition); }
+
+.slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--s3); }
+
+.slot {
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 118px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.slot.filled { border-style: solid; border-color: var(--border); }
+.slot.dragging { border-color: var(--accent); background: var(--accent-soft); }
+
+.slot-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); }
+.slot-label { font-size: 12.5px; font-weight: 600; }
+.slot-required { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.slot-hint { margin-top: 2px; }
+.slot-file { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.slot-file-name { font-size: 12px; color: var(--text-secondary); max-width: 100%; }
+.slot-error { color: var(--rejected); }
+.slot-actions { margin-top: auto; }
+
+.submit-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s4);
+  margin-top: var(--s5);
+  border-left: 3px solid var(--accent);
+}

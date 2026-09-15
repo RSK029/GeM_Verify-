@@ -1,0 +1,12 @@
+.auth-page {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--s5);
+  background: var(--bg);
+}
+.auth-card { width: 100%; max-width: 380px; padding: var(--s5); }
+.auth-head { display: flex; align-items: center; gap: var(--s3); margin-bottom: var(--s5); }
+.auth-head h1 { font-size: 17px; }
+.auth-head .brand-mark { width: 36px; height: 36px; font-size: 13px; }
+.auth-foot { margin-top: var(--s4); text-align: center; line-height: 1.7; }

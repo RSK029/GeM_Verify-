@@ -1,0 +1,651 @@
+[
+  {
+    "dataset": "d1",
+    "company": "ABC Industrial Systems Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Tamil Nadu)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2014)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 12.48 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "11 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "62%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [],
+    "cross_document_verdict": "CONSISTENT",
+    "cross_document_defect": null
+  },
+  {
+    "dataset": "d2",
+    "company": "XYZ Electromech Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Maharashtra)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2013)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 8.76 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "12 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "71%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [],
+    "cross_document_verdict": "CONSISTENT",
+    "cross_document_defect": null
+  },
+  {
+    "dataset": "d3",
+    "company": "PQR Engineering Works Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Karnataka)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2016)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 19.32 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "9 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "55%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [],
+    "cross_document_verdict": "CONSISTENT",
+    "cross_document_defect": null
+  },
+  {
+    "dataset": "d4",
+    "company": "LMN Power Solutions Private Limited",
+    "defect": "gstin_checksum",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": false,
+        "detail": "mod-36 checksum failed (expected '1', found '2')"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2015)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 14.05 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "10 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "58%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [],
+    "cross_document_verdict": "CONSISTENT",
+    "cross_document_defect": null
+  },
+  {
+    "dataset": "d5",
+    "company": "DEF Techno Equipments Private Limited",
+    "defect": "pan_name_mismatch",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Uttar Pradesh)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2012)"
+      },
+      "PAN name match": {
+        "pass": false,
+        "detail": "name mismatch: 'DEF Techno Equipments Private Limited' vs 'DEF Technocraft Private Limited'"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 9.87 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "13 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "66%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [
+      {
+        "dimension": "legal_name",
+        "documents_involved": [
+          "bank-mandate",
+          "contract",
+          "gst-certificate",
+          "incorporation",
+          "pan",
+          "turnover",
+          "udyam"
+        ],
+        "verdict": "POTENTIAL_INCONSISTENCY",
+        "detail": "names share a leading element but are not the same entity name: 'DEF Techno Equipments Private Limited'; 'DEF Technocraft Private Limited'"
+      }
+    ],
+    "cross_document_verdict": "POTENTIAL_INCONSISTENCY",
+    "cross_document_defect": {
+      "dimension": "legal_name",
+      "documents_involved": [
+        "pan",
+        "gst-certificate",
+        "incorporation",
+        "contract"
+      ],
+      "expected_verdict": "POTENTIAL_INCONSISTENCY"
+    }
+  },
+  {
+    "dataset": "d6",
+    "company": "GHI Automation Private Limited",
+    "defect": "aadhaar_checksum",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Haryana)"
+      },
+      "Aadhaar": {
+        "pass": false,
+        "detail": "Verhoeff checksum failed"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2017)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 6.42 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "8 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "52%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [],
+    "cross_document_verdict": "CONSISTENT",
+    "cross_document_defect": null
+  },
+  {
+    "dataset": "d7",
+    "company": "Sterling Hydro Systems Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Kerala)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2015)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 11.35 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "10 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "57%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [
+      {
+        "dimension": "legal_name",
+        "documents_involved": [
+          "bank-mandate",
+          "contract",
+          "gst-certificate",
+          "incorporation",
+          "pan",
+          "turnover",
+          "udyam"
+        ],
+        "verdict": "VARIATION",
+        "detail": "same name with the legal-form suffix written differently: 'Sterling Hydro Systems Private Limited'; 'Sterling Hydro Systems'; 'Sterling Hydro Systems Pvt. Ltd.'"
+      }
+    ],
+    "cross_document_verdict": "VARIATION",
+    "cross_document_defect": {
+      "dimension": "legal_name",
+      "documents_involved": [
+        "gst-certificate",
+        "pan",
+        "incorporation",
+        "turnover",
+        "udyam",
+        "bank-mandate"
+      ],
+      "expected_verdict": "VARIATION"
+    }
+  },
+  {
+    "dataset": "d8",
+    "company": "Meridian Process Controls Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Maharashtra)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2014)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 16.70 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "11 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "64%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [
+      {
+        "dimension": "registered_address",
+        "documents_involved": [
+          "epfo-esic",
+          "gst-certificate",
+          "incorporation",
+          "turnover",
+          "udyam"
+        ],
+        "verdict": "VARIATION",
+        "detail": "same address written differently: 'Plot 22, MIDC Industrial Area, Andheri East, Mumbai, Maharashtra - 400093'; 'Plot 22, MIDC Area, Andheri East, Mumbai, Maharashtra'; 'Plot 22, M.I.D.C. Indl. Area, Andheri (E), Mumbai 400093'"
+      }
+    ],
+    "cross_document_verdict": "VARIATION",
+    "cross_document_defect": {
+      "dimension": "registered_address",
+      "documents_involved": [
+        "gst-certificate",
+        "turnover",
+        "udyam"
+      ],
+      "expected_verdict": "VARIATION"
+    }
+  },
+  {
+    "dataset": "d9",
+    "company": "Orion Thermal Engineering Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Karnataka)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2016)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 13.90 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "9 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "61%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [
+      {
+        "dimension": "authorised_signatory",
+        "documents_involved": [
+          "contract",
+          "aadhaar",
+          "gst-certificate"
+        ],
+        "verdict": "INCONSISTENT",
+        "detail": "signing officer 'Deepak Ranganathan' is not among the directors on record (HARISH MALHOTRA, SNEHA KULKARNI)"
+      }
+    ],
+    "cross_document_verdict": "INCONSISTENT",
+    "cross_document_defect": {
+      "dimension": "authorised_signatory",
+      "documents_involved": [
+        "contract",
+        "aadhaar",
+        "gst-certificate"
+      ],
+      "expected_verdict": "INCONSISTENT"
+    }
+  },
+  {
+    "dataset": "d10",
+    "company": "Vertex Fluid Systems Private Limited",
+    "defect": "none",
+    "individual_checks": {
+      "PAN": {
+        "pass": true,
+        "detail": "format OK (Company)"
+      },
+      "GSTIN": {
+        "pass": true,
+        "detail": "checksum OK (Maharashtra)"
+      },
+      "Aadhaar": {
+        "pass": true,
+        "detail": "Verhoeff OK (reserved/non-issuable range - specimen)"
+      },
+      "Udyam": {
+        "pass": true,
+        "detail": "format OK"
+      },
+      "CIN": {
+        "pass": true,
+        "detail": "format OK (Unlisted, PTC, 2013)"
+      },
+      "PAN name match": {
+        "pass": true,
+        "detail": "names match"
+      },
+      "Turnover >= 5 cr": {
+        "pass": true,
+        "detail": "Rs. 7.85 crore"
+      },
+      "Experience >= 5 yrs": {
+        "pass": true,
+        "detail": "12 years"
+      },
+      "Local content >= 50%": {
+        "pass": true,
+        "detail": "53%"
+      },
+      "EPFO active": {
+        "pass": true,
+        "detail": "status ACTIVE"
+      },
+      "OEM covers all items": {
+        "pass": true,
+        "detail": "tender ref quoted, no exclusions"
+      }
+    },
+    "cross_document_findings": [
+      {
+        "dimension": "gstin_pan_and_state_linkage",
+        "documents_involved": [
+          "gst-certificate",
+          "pan",
+          "incorporation"
+        ],
+        "verdict": "INCONSISTENT",
+        "detail": "GSTIN embeds PAN AAACV3434C but the declared PAN is AAACV1212C; GSTIN state is MH (Maharashtra) but the CIN state is KA"
+      }
+    ],
+    "cross_document_verdict": "INCONSISTENT",
+    "cross_document_defect": {
+      "dimension": "gstin_pan_and_state_linkage",
+      "documents_involved": [
+        "gst-certificate",
+        "pan",
+        "incorporation"
+      ],
+      "expected_verdict": "INCONSISTENT"
+    }
+  }
+]

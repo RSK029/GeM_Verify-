@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local database and its WAL sidecars
+backend/gemverify.db
+backend/gemverify.db-wal
+backend/gemverify.db-shm
+
+# Uploaded documents are sensitive and are never committed
+backend/uploads/
+
+node_modules/
+dist/
+.vite/
+.env
+.env.local
+.DS_Store
+.idea/
+.vscode/
