@@ -361,6 +361,41 @@ def main() -> int:
         refused = bidder.get(f"{BASE}/bids/{bid_id}/explanation?kind=ADMIN_SUMMARY")
         check("bidders cannot read the officer's summary", refused.status_code == 403)
 
+    # ------------------------------------------------ query-param filters
+    section("Status filters")
+    everything = admin.get(f"{BASE}/admin/bids").json()
+    filtered = admin.get(f"{BASE}/admin/bids?status=MANUAL_REVIEW").json()
+    check(
+        "?status= actually filters the admin list",
+        len(filtered) < len(everything),
+        f"{len(filtered)} of {len(everything)} returned — the filter is being IGNORED",
+    )
+    check(
+        "every row matches the requested status",
+        all(b["status"] == "MANUAL_REVIEW" for b in filtered),
+        str({b["status"] for b in filtered}),
+    )
+    nonsense = admin.get(f"{BASE}/admin/bids?status=NO_SUCH_STATUS").json()
+    check("an unmatched status returns nothing", nonsense == [], str(nonsense)[:120])
+
+    if target_email in results:
+        mine = clients[target_email]
+        all_mine = mine.get(f"{BASE}/bids").json()
+        drafts = mine.get(f"{BASE}/bids?status=DRAFT").json()
+        check(
+            "?status= filters the bidder's own list",
+            len(drafts) <= len(all_mine)
+            and all(b["status"] == "DRAFT" for b in drafts),
+            f"{len(drafts)} of {len(all_mine)}",
+        )
+
+    open_tenders = admin.get(f"{BASE}/tenders?status=OPEN").json()
+    check(
+        "?status= filters tenders",
+        all(t["status"] == "OPEN" for t in open_tenders),
+        str({t["status"] for t in open_tenders}),
+    )
+
     # --------------------------------------------- scores are admin-only
     section("Score visibility")
     if target_email in results:

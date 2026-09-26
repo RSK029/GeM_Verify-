@@ -23,7 +23,7 @@ import './consistency.css'
  */
 export function IntelligencePanel({
   report, bidId, bidStatus, canRegenerate, resolveDocument, onOpenDocument,
-  explanationKind = 'ADMIN_SUMMARY', showScores = true,
+  explanationKind = 'ADMIN_SUMMARY', showScores = true, issuesOnly = false,
 }: {
   report: ConsistencyReport
   bidId: number
@@ -36,6 +36,11 @@ export function IntelligencePanel({
    * nulls for all of them, so this only suppresses the empty chrome.
    */
   showScores?: boolean
+  /**
+   * On in the bidder portal: the dimension rows badge problems only, and stay
+   * blank when there is nothing wrong. See DimensionMeter.
+   */
+  issuesOnly?: boolean
   /**
    * Which narration to show beneath the findings, or null for none.
    * ADMIN_SUMMARY is admin-only — the API answers a bidder asking for it with
@@ -143,7 +148,13 @@ export function IntelligencePanel({
         </div>
         <div className="meter-list">
           {dims.map((d) => (
-            <DimensionMeter key={d.dimension} d={d} showScore={showScores} />
+            <DimensionMeter
+              key={d.dimension}
+              d={d}
+              showScore={showScores}
+              issuesOnly={issuesOnly}
+              flags={flags}
+            />
           ))}
         </div>
       </div>

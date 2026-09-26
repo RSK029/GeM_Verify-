@@ -373,3 +373,60 @@ If the demo wants either loosened, both are one constant: `_WITHDRAWABLE` and
 instruction. Rev 12 adds two endpoints and one enum member to the real API that
 the document does not describe, alongside the inaccuracies already listed under
 Known risks. Worth one decision before judging.
+
+---
+
+## Rev 12a — the status filter never worked
+
+Found while testing rev 12, but **not caused by it**: it has been broken since
+the routers were written, and no test caught it because every unit test calls
+the engine directly and the smoke test only ever asked for unfiltered lists.
+
+`docs/API_CONTRACT.md` specifies `?status=` on `/tenders`, `/bids` and
+`/admin/bids`. All three handlers named the argument `status_filter`, and
+FastAPI derives the query-parameter name from the argument name — so the server
+was looking for `?status_filter=`, ignored the `?status=` the UI sent, and
+returned the full list every time. The dropdown changed the URL and nothing
+else; the row count stayed at 11 for every selection.
+
+The argument cannot simply be renamed `status`, because that name is already
+the imported `fastapi.status` module in each of those files. Fixed with
+`Query(None, alias="status")`, which keeps the contract's wire name and the
+local name apart.
+
+The smoke test now asserts the filter narrows the result, that every returned
+row matches the requested status, and that an unmatched status returns nothing
+— on all three endpoints. A filter that silently does nothing is the kind of
+bug a demo surfaces at the worst possible moment.
+
+---
+
+## Rev 12b — bidder dimensions report problems only
+
+The bidder's DIMENSIONS rows were carrying two labels that said nothing: "Not
+applicable" (an artefact of hiding the score — see rev 12) and a green
+"Consistent" pill on every clean row. Five identical green pills is not
+reassurance, it is noise that the eye has to filter before it finds the one row
+that matters.
+
+A clean dimension now renders nothing on the right. Only a real issue gets a
+badge, labelled from the data rather than from the raw verdict name:
+
+| Label | When |
+|---|---|
+| Missing | every divergent observation has no value at all |
+| Invalid | a divergent reason names a checksum or a malformed identifier |
+| Inconsistent | worst verdict is INCONSISTENT |
+| Mismatch | worst verdict is VARIATION or POTENTIAL_INCONSISTENCY |
+| Review required | fallback for a verdict none of the above covers |
+
+"Worst verdict" deliberately takes in **both** the dimension's own verdict and
+any flag raised against that dimension. The structural linkage checks — a GSTIN
+that does not embed the PAN, a signatory absent from the board — attach to a
+dimension without changing its verdict, so reading `d.verdict` alone would have
+left those rows blank while the finding sat in the list directly above them.
+
+Scoped behind an `issuesOnly` prop that only the bidder page sets, so the
+officer's review page keeps its verdict pills and percentages unchanged. Score
+visibility is untouched, and the expanded per-document table still shows every
+observation and its verdict — nothing about the finding itself was removed.

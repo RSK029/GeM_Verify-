@@ -190,6 +190,11 @@
 /* No bar and often no figure — the verdict pill sits straight after the
    dimension name and sizes to its own content. */
 .meter-head-plain { grid-template-columns: 14px 1fr auto auto; }
+
+/* Problems only: the dimension name takes the width and a badge, when there is
+   one, sits at the end. A clean row leaves that last column empty on purpose. */
+.meter-head-issues { grid-template-columns: 14px 1fr auto; }
+.issue-mark { margin-right: 1px; font-size: 11px; line-height: 1; }
 .meter-caret { color: var(--text-muted); font-size: 10px; }
 
 .meter-identity { display: flex; flex-direction: column; min-width: 0; }

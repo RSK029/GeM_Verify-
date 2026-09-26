@@ -7,6 +7,7 @@ from fastapi import (
     File,
     Form,
     HTTPException,
+    Query,
     UploadFile,
     status,
 )
@@ -110,7 +111,12 @@ def create_bid(
 
 @router.get("", response_model=list[BidSummaryOut])
 def list_bids(
-    status_filter: str | None = None,
+    # Named `status` on the wire, per docs/API_CONTRACT.md. The argument cannot
+    # be called `status` because that name is already FastAPI's status-code
+    # module in this file — hence the alias. Without it FastAPI looked for
+    # `?status_filter=`, so the filter the UI sent was silently ignored and
+    # every request returned the unfiltered list.
+    status_filter: str | None = Query(None, alias="status"),
     db: Session = Depends(get_db),
     user: User = Depends(require_bidder),
 ):

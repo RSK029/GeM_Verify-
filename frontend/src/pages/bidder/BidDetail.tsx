@@ -253,6 +253,7 @@ export default function BidDetail() {
             bidStatus={b.status}
             explanationKind={null}
             showScores={false}
+            issuesOnly
           />
         </div>
       )}

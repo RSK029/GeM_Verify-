@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
 from ..database import get_db
@@ -14,7 +14,12 @@ router = APIRouter(prefix="/tenders", tags=["tenders"])
 
 @router.get("", response_model=list[TenderListOut])
 def list_tenders(
-    status_filter: str | None = None,
+    # Named `status` on the wire, per docs/API_CONTRACT.md. The argument cannot
+    # be called `status` because that name is already FastAPI's status-code
+    # module in this file — hence the alias. Without it FastAPI looked for
+    # `?status_filter=`, so the filter the UI sent was silently ignored and
+    # every request returned the unfiltered list.
+    status_filter: str | None = Query(None, alias="status"),
     db: Session = Depends(get_db),
     _: User = Depends(current_user),
 ):

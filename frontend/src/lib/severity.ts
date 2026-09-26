@@ -8,7 +8,8 @@
  */
 
 import type {
-  BidStatus, BidSummary, CheckResult, ConsistencyVerdict, DocumentStatus,
+  BidStatus, BidSummary, CheckResult, ConsistencyDimensionReport,
+  ConsistencyFlag, ConsistencyVerdict, DocumentStatus,
 } from '@/api/types'
 
 export type Tone = 'ok' | 'warn' | 'bad' | 'busy' | 'neutral'
@@ -110,4 +111,61 @@ export function worstTone(tones: Tone[]): Tone {
     (acc, t) => (order.indexOf(t) > order.indexOf(acc) ? t : acc),
     'ok',
   )
+}
+
+/* ------------------------------------------------------- dimension issues */
+
+export interface DimensionIssue {
+  label: string
+  tone: Tone
+}
+
+/** Reasons naming a checksum or a malformed identifier, rather than a mismatch. */
+const INVALID_REASON = /invalid|checksum|verhoeff|mod-?\s?\d|malformed|format/i
+
+/**
+ * What, if anything, is wrong with one dimension — for a reader who should see
+ * problems and nothing else.
+ *
+ * Returns null when there is nothing to report. That covers both a clean
+ * dimension and one with nothing to compare: neither is a finding, and a badge
+ * reading "Consistent" or "Not applicable" is noise that competes with the
+ * badges that do matter. Only an actual issue earns a label.
+ *
+ * Two sources are considered, because a dimension's own verdict is not the
+ * whole story. The dimension verdict comes from comparing documents against
+ * the canonical value, while the structural linkage checks — a GSTIN that does
+ * not embed the PAN, a signatory absent from the board — raise flags against a
+ * dimension without changing that verdict. Reading only `d.verdict` would
+ * leave those rows blank while the finding sat in the list above.
+ *
+ * The label follows the data, not prose: a divergence where every document is
+ * simply missing the value reads "Missing"; one whose reason names a checksum
+ * or a malformed identifier reads "Invalid"; otherwise the verdict decides.
+ */
+export function dimensionIssue(
+  d: ConsistencyDimensionReport,
+  flags: ConsistencyFlag[] = [],
+): DimensionIssue | null {
+  const related = flags.filter((f) => f.dimension === d.dimension)
+  const verdicts: ConsistencyVerdict[] = [d.verdict, ...related.map((f) => f.verdict)]
+  const worst = verdicts.reduce((acc, v) =>
+    (VERDICT_WEIGHT[v] > VERDICT_WEIGHT[acc] ? v : acc), 'CONSISTENT' as ConsistencyVerdict)
+
+  if (worst === 'CONSISTENT') return null
+
+  const tone = VERDICT_TONE[worst]
+  const divergent = d.observations.filter((o) => o.verdict !== 'CONSISTENT')
+
+  if (divergent.length > 0 && divergent.every((o) => !o.value)) {
+    return { label: 'Missing', tone }
+  }
+  if (divergent.some((o) => o.reason && INVALID_REASON.test(o.reason))) {
+    return { label: 'Invalid', tone }
+  }
+  if (worst === 'INCONSISTENT') return { label: 'Inconsistent', tone }
+  if (worst === 'VARIATION' || worst === 'POTENTIAL_INCONSISTENCY') {
+    return { label: 'Mismatch', tone }
+  }
+  return { label: 'Review required', tone }
 }
